@@ -1,0 +1,308 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1D2C3C3E-0F59-4749-AE01-88A944E51E69}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ExperimentTableDetectSystem</RootNamespace>
+    <AssemblyName>ExperimentTableDetectSystem</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>false</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>display.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MetroFramework, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MetroFramework.RunTime.1.2.0.3\lib\net40-Client\MetroFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Design">
+      <HintPath>..\packages\MetroFramework.Design.1.2.0.3\lib\net40\MetroFramework.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI, Version=2.0.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML, Version=2.0.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net, Version=2.0.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats, Version=2.0.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="entity\MyEventArgs.cs" />
+    <Compile Include="entity\User.cs" />
+    <Compile Include="entity\UserRightConstraint.cs" />
+    <Compile Include="LoginWin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginWin.Designer.cs">
+      <DependentUpon>LoginWin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NPOI\NPOIHelper.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="service\ChartExcel.cs" />
+    <Compile Include="service\ConfigManager.cs" />
+    <Compile Include="service\DataStoreManager.cs" />
+    <Compile Include="service\ExportToExcel.cs" />
+    <Compile Include="service\OperateDb.cs" />
+    <Compile Include="service\PCANBasic.cs" />
+    <Compile Include="service\PcanHelper.cs" />
+    <Compile Include="service\PeakHelper.cs" />
+    <Compile Include="service\RecreateRecordManager.cs" />
+    <Compile Include="service\SearchHelper.cs" />
+    <Compile Include="service\UserRightManager.cs" />
+    <Compile Include="testWin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="testWin.Designer.cs">
+      <DependentUpon>testWin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="util\DBHelper.cs" />
+    <Compile Include="Windows\auto\autoDataDisplayWin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\auto\autoDataDisplayWin.Designer.cs">
+      <DependentUpon>autoDataDisplayWin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\auto\AutoExperimentWin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\auto\AutoExperimentWin.Designer.cs">
+      <DependentUpon>AutoExperimentWin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\auto\TestFinishedWin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\auto\TestFinishedWin.Designer.cs">
+      <DependentUpon>TestFinishedWin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ExperimentData\DataSearchByTimeWin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\ExperimentData\DataSearchByTimeWin.Designer.cs">
+      <DependentUpon>DataSearchByTimeWin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ExperimentData\DataSearchWin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\ExperimentData\DataSearchWin.Designer.cs">
+      <DependentUpon>DataSearchWin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ExperimentData\HistoryDataWin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\ExperimentData\HistoryDataWin.Designer.cs">
+      <DependentUpon>HistoryDataWin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ExperimentData\HistoryDataWin2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\ExperimentData\HistoryDataWin2.Designer.cs">
+      <DependentUpon>HistoryDataWin2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ExperimentData\ValveListWin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\ExperimentData\ValveListWin.Designer.cs">
+      <DependentUpon>ValveListWin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\MainWin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\MainWin.Designer.cs">
+      <DependentUpon>MainWin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\manual\RecordClickTime.cs" />
+    <Compile Include="Windows\manual\ManualExperimentWin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\manual\ManualExperimentWin.Designer.cs">
+      <DependentUpon>ManualExperimentWin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\manual\ManualNumberInput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\manual\ManualNumberInput.Designer.cs">
+      <DependentUpon>ManualNumberInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\manual\ManualSelectWin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\manual\ManualSelectWin.Designer.cs">
+      <DependentUpon>ManualSelectWin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\manual\RetestConfirmWin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\manual\RetestConfirmWin.Designer.cs">
+      <DependentUpon>RetestConfirmWin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\setParameterWin\SetParameterWin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\setParameterWin\SetParameterWin.Designer.cs">
+      <DependentUpon>SetParameterWin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\SinglePoint\SinglePointDebuggingWin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\SinglePoint\SinglePointDebuggingWin.Designer.cs">
+      <DependentUpon>SinglePointDebuggingWin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\UserWin\AddAndUpdateWin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\UserWin\AddAndUpdateWin.Designer.cs">
+      <DependentUpon>AddAndUpdateWin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\UserWin\UserRightWin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\UserWin\UserRightWin.Designer.cs">
+      <DependentUpon>UserRightWin.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="LoginWin.resx">
+      <DependentUpon>LoginWin.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="testWin.resx">
+      <DependentUpon>testWin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\auto\autoDataDisplayWin.resx">
+      <DependentUpon>autoDataDisplayWin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\auto\AutoExperimentWin.resx">
+      <DependentUpon>AutoExperimentWin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\auto\TestFinishedWin.resx">
+      <DependentUpon>TestFinishedWin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\ExperimentData\DataSearchByTimeWin.resx">
+      <DependentUpon>DataSearchByTimeWin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\ExperimentData\DataSearchWin.resx">
+      <DependentUpon>DataSearchWin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\ExperimentData\HistoryDataWin.resx">
+      <DependentUpon>HistoryDataWin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\ExperimentData\HistoryDataWin2.resx">
+      <DependentUpon>HistoryDataWin2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\ExperimentData\ValveListWin.resx">
+      <DependentUpon>ValveListWin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\MainWin.resx">
+      <DependentUpon>MainWin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\manual\ManualExperimentWin.resx">
+      <DependentUpon>ManualExperimentWin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\manual\ManualNumberInput.resx">
+      <DependentUpon>ManualNumberInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\manual\ManualSelectWin.resx">
+      <DependentUpon>ManualSelectWin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\manual\RetestConfirmWin.resx">
+      <DependentUpon>RetestConfirmWin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\setParameterWin\SetParameterWin.resx">
+      <DependentUpon>SetParameterWin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\SinglePoint\SinglePointDebuggingWin.resx">
+      <DependentUpon>SinglePointDebuggingWin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\UserWin\AddAndUpdateWin.resx">
+      <DependentUpon>AddAndUpdateWin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\UserWin\UserRightWin.resx">
+      <DependentUpon>UserRightWin.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="Properties\app.manifest">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="display.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
